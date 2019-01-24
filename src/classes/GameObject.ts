@@ -3,6 +3,9 @@ import Component from './Component';
 import Transform from './components/Transform';
 import GameEvent from './GameEvent';
 import Events from './Events';
+import ComponentAddedEvent from './events/ComponentAddedEvent';
+import { LineSegments } from 'three';
+import ComponentRemovedEvent from './events/ComponentRemovedEvent';
 
 export default class GameObject {
 	public static getById<T extends GameObject>(uuid: string): GameObject | null {
@@ -43,12 +46,11 @@ export default class GameObject {
 		})
 		return retVal
 	}
-	
+
 	private static instances: { [uuid: string]: GameObject } = {}
 
-
 	public readonly uuid: string
-	private readonly components: Component[] = []
+	private components: Component[] = []
 
 	constructor() {
 		this.uuid = uuid.v4()
@@ -68,6 +70,15 @@ export default class GameObject {
 	public addComponent(component: Component): void {
 		this.components.push(component)
 		component.gameObject = this
+		Events.emit(new ComponentAddedEvent(component))
+	}
+
+	public removeComponent<T extends Component>(componentClass: new (...args: any[]) => T) {
+		const component = this.getComponent(componentClass)
+		this.components = this.components.filter(component => !(component instanceof componentClass));
+		if (component) {
+			Events.emit(new ComponentRemovedEvent(component))
+		}
 	}
 
 	public update(dt: number) {

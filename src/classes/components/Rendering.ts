@@ -9,7 +9,6 @@ export default class Rendering extends Component {
 		public readonly mesh: Object3D
 	) {
 		super()
-		Events.emit(new ComponentAddedEvent(this))
 	}
 
 	public update(dt: number): void {

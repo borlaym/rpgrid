@@ -22,7 +22,6 @@ export default class Outline extends Component {
 		this.outlineMesh.position.set(parentMesh.position.x, parentMesh.position.y, parentMesh.position.z)
 		this.outlineMesh.material = outlineMaterial
 		this.outlineMesh.scale.multiplyScalar(1.05);
-		Events.emit(new ComponentAddedEvent(this))
 	}
 
 	public update(dt: number): void {
