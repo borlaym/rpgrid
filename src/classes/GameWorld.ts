@@ -1,5 +1,6 @@
 import GameObject from './GameObject';
-import Tile from './rpgrid/Tile';
+import Tile from './blueprints/Tile';
+import Pawn from './blueprints/Pawn';
 
 export default class GameWorld {
 	private readonly gameObjects: GameObject[] = []
@@ -13,6 +14,8 @@ export default class GameWorld {
 				this.addObject(new Tile(row, col))
 			}
 		}
+
+		this.addObject(new Pawn(1, 3))
 	}
 
 	public update(dt: number) {

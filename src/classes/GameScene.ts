@@ -6,6 +6,8 @@ import Rendering from './components/Rendering';
 import Collision from './components/Collision';
 import Outline from './components/Outline';
 import ComponentRemovedEvent from './events/ComponentRemovedEvent';
+import { PointLight, AmbientLight } from 'three';
+
 
 export default class GameScene {
 	public readonly scene = new Scene()
@@ -44,5 +46,12 @@ export default class GameScene {
 				}
 			}
 		})
+
+		const globalIllumination = new AmbientLight(0xffffff, 0.4)
+		this.scene.add(globalIllumination)
+
+		const light = new PointLight(0xffffff, 13, 4, 3);
+		light.position.set(4, 1, 4)
+		this.scene.add(light)
 	}
 }

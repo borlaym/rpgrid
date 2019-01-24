@@ -38,12 +38,14 @@ export default class Tile extends GameObject {
 		if (InputController.mousePointingAt === this && component instanceof Line) {
 			this.removeComponent(Rendering);
 			this.addComponent(new Rendering(this.mesh))
-			if (InputController.click) {
-				console.log(this.getComponent(Transform).position)
-			}
+
 		} else if (InputController.mousePointingAt !== this && component instanceof Mesh) {
 			this.removeComponent(Rendering);
 			this.addComponent(new Rendering(this.outline))
+		}
+
+		if (InputController.mousePointingAt === this && InputController.click) {
+			console.log(this.getComponent(Transform).position)
 		}
 	}
 }
