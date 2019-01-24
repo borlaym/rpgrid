@@ -1,6 +1,7 @@
 import Component from '../Component';
 import { Object3D } from 'three';
 import Transform from './Transform';
+import GameEvent from '../GameEvent';
 
 export default class Collision extends Component {
 	constructor(
@@ -14,7 +15,7 @@ export default class Collision extends Component {
 		this.collider.position.set(position.x, position.y, position.z)
 		this.collider.rotation.set(rotation.x, rotation.y, rotation.z)
 	}
-	protected handleEvent(event: GamepadEvent): void {
+	protected handleEvent(event: GameEvent): void {
 		return
 	}
 }

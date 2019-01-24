@@ -8,6 +8,7 @@ import GameObject from './classes/GameObject';
 import Rendering from './classes/components/Rendering';
 import InputController from './classes/InputController';
 import Collision from './classes/components/Collision';
+import Outline from './classes/components/Outline';
 
 const gameScene = new GameScene()
 GameCamera.position.y = 4
@@ -40,6 +41,9 @@ function update() {
 
 	// Update meshes
 	GameObject.getComponentsOfType(Rendering).forEach(c => c.update(dt))
+
+	// Update outlines
+	GameObject.getComponentsOfType(Outline).forEach(c => c.update(dt))
 
 	// Reset InputController
 	InputController.reset()

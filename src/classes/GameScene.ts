@@ -4,6 +4,7 @@ import ComponentAddedEvent from './events/ComponentAddedEvent';
 import Component from './Component';
 import Rendering from './components/Rendering';
 import Collision from './components/Collision';
+import Outline from './components/Outline';
 
 export default class GameScene {
 	public readonly scene = new Scene()
@@ -18,6 +19,9 @@ export default class GameScene {
 							break;
 						case Collision:
 							this.scene.add((component as Collision).collider)
+							break;
+						case Outline:
+							this.scene.add((component as Outline).outlineMesh)
 							break;
 					}
 				}

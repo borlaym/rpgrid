@@ -1,4 +1,5 @@
 import GameObject from './GameObject';
+import Tile from './rpgrid/Tile';
 
 export default class GameWorld {
 	private readonly gameObjects: GameObject[] = []
@@ -7,6 +8,11 @@ export default class GameWorld {
 	}
 
 	public setup() {
+		for (let row = 0; row < 5; row++) {
+			for (let col = 0; col < 5; col++) {
+				this.addObject(new Tile(row, col))
+			}
+		}
 	}
 
 	public update(dt: number) {
