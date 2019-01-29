@@ -37,6 +37,9 @@ function update() {
 	// Update InputController
 	InputController.update()
 
+	// Update camera
+	GameCamera.update(dt)
+
 	// Update gameObjects
 	gameWorld.update(dt)
 
