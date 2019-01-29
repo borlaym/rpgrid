@@ -6,6 +6,7 @@ import * as THREE from 'three';
 import InputController from '../InputController';
 import Transform from '../components/Transform';
 import Outline from '../components/Outline';
+import Selectable from '../components/Selectable';
 
 const pawnGeometry = new BoxGeometry(1, 1, 2);
 const pawnMaterial = new MeshLambertMaterial({ color: 0x0ffff00, side: DoubleSide });
@@ -21,6 +22,7 @@ export default class Pawn extends GameObject {
 		this.addComponent(new Rendering(this.mesh))
 		this.addComponent(new Collision(new Mesh(pawnGeometry, hitBoxMaterial)))
 		this.addComponent(new Outline(this))
+		this.addComponent(new Selectable())
 		this.transform.position.x = row
 		this.transform.position.z = col
 		this.transform.position.y = 1

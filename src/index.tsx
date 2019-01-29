@@ -9,6 +9,7 @@ import Rendering from './classes/components/Rendering';
 import InputController from './classes/InputController';
 import Collision from './classes/components/Collision';
 import Outline from './classes/components/Outline';
+import Selectable from './classes/components/Selectable';
 
 const gameScene = new GameScene()
 GameCamera.position.y = 4
@@ -44,6 +45,9 @@ function update() {
 
 	// Update outlines
 	GameObject.getComponentsOfType(Outline).forEach(c => c.update(dt))
+
+	// Update selects
+	GameObject.getComponentsOfType(Selectable).forEach(c => c.update())
 
 	// Reset InputController
 	InputController.reset()

@@ -1,13 +1,11 @@
 import Component from '../Component';
-import { Object3D, MeshBasicMaterial, Mesh } from 'three';
+import { MeshBasicMaterial, Mesh } from 'three';
 import Transform from './Transform';
 import Rendering from './Rendering';
 import * as THREE from 'three';
 import GameObject from '../GameObject';
-import Events from '../Events';
-import ComponentAddedEvent from '../events/ComponentAddedEvent';
 
-const outlineMaterial = new MeshBasicMaterial( { color: 0xff0000, side: THREE.BackSide } );
+const outlineMaterial = new MeshBasicMaterial( { color: 0xffffff, side: THREE.BackSide } );
 
 export default class Outline extends Component {
 	public outlineMesh: Mesh
