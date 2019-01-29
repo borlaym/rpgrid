@@ -48,6 +48,7 @@ function update() {
 
 	// Update selects
 	GameObject.getComponentsOfType(Selectable).forEach(c => c.update())
+	Selectable.checkClear()
 
 	// Reset InputController
 	InputController.reset()

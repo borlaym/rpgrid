@@ -9,6 +9,12 @@ import GameObject from '../GameObject';
  */
 export default class Selectable extends Component {
 	public static current: GameObject | null = null
+	public static checkClear() {
+		// Clicking on empty space clears selection
+		if (!InputController.mousePointingAt && InputController.click) {
+			Selectable.current = null
+		}
+	}
 	public update(): void {
 		if (InputController.mousePointingAt === this.gameObject && InputController.click) {
 			Selectable.current = this.gameObject
