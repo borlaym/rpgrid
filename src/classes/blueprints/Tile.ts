@@ -6,6 +6,7 @@ import * as THREE from 'three';
 import InputController from '../InputController';
 import Transform from '../components/Transform';
 import Outline from '../components/Outline';
+import Selectable from '../components/Selectable';
 
 const tileGeometry = new PlaneGeometry(1, 1);
 const tileMaterial = new LineBasicMaterial({ color: 0x00ff00 });
@@ -44,8 +45,11 @@ export default class Tile extends GameObject {
 			this.addComponent(new Rendering(this.outline))
 		}
 
-		if (InputController.mousePointingAt === this && InputController.click) {
-			console.log(this.getComponent(Transform).position)
+		// Move selected object here when clicked
+		if (InputController.mousePointingAt === this && InputController.click && Selectable.current !== null) {
+			const position = this.getComponent(Transform).position;
+			Selectable.current.transform.position.x = position.x
+			Selectable.current.transform.position.z = position.z
 		}
 	}
 }

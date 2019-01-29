@@ -12,7 +12,6 @@ export default class Selectable extends Component {
 	public update(): void {
 		if (InputController.mousePointingAt === this.gameObject && InputController.click) {
 			Selectable.current = this.gameObject
-			console.log(this.gameObject)
 		}
 	}
 	protected handleEvent(event: GameEvent): void {

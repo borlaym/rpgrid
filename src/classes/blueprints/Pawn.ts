@@ -31,7 +31,7 @@ export default class Pawn extends GameObject {
 
 	public update() {
 		const outline = this.getComponent(Outline);
-		if (InputController.mousePointingAt === this) {
+		if (InputController.mousePointingAt === this || Selectable.current === this) {
 			outline.outlineMesh.visible = true
 		} else {
 			outline.outlineMesh.visible = false
