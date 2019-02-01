@@ -1,3 +1,4 @@
-export default class GameEvent {
+export default abstract class GameEvent {
+	abstract type: string;
 }
 
