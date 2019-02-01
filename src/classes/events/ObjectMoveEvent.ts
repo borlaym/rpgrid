@@ -14,11 +14,11 @@ export default class ObjectMoveEvent extends GameEvent {
 		super()
 	}
 
-	toJSON(): SerializedObjectMoveEvent {
-		return {
+	toJSON(): string {
+		return JSON.stringify({
 			type: 'ObjectMoveEvent',
 			component: this.gameObject.uuid
-		}
+		});
 	}
 
 	static parse(data: SerializedObjectMoveEvent) {

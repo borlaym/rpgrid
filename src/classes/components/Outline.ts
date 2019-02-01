@@ -4,6 +4,7 @@ import Transform from './Transform';
 import Rendering from './Rendering';
 import * as THREE from 'three';
 import GameObject from '../GameObject';
+import GameEvent from '../GameEvent';
 
 const outlineMaterial = new MeshBasicMaterial( { color: 0xffffff, side: THREE.BackSide } );
 
@@ -27,7 +28,7 @@ export default class Outline extends Component {
 		this.outlineMesh.position.set(position.x, position.y, position.z)
 		this.outlineMesh.rotation.set(rotation.x, rotation.y, rotation.z)
 	}
-	protected handleEvent(event: GamepadEvent): void {
+	protected handleEvent(event: GameEvent): void {
 		return
 	}
 }

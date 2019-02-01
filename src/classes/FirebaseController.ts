@@ -28,8 +28,10 @@ function parseEvent(eventJSON: { type: string }): GameEvent | void {
 }
 
 eventsRef.on('value', eventJSON => {
-	const event =  parseEvent(eventJSON)
-	if (event) {
-		Events.emit(event);
+	if (eventJSON) {
+		const event = parseEvent(eventJSON.val())
+		if (event) {
+			Events.emit(event);
+		}
 	}
 });

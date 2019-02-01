@@ -8,4 +8,8 @@ export default class ComponentAddedEvent extends GameEvent {
 	) {
 		super()
 	}
+
+	toJSON() {
+		return ''
+	}
 }

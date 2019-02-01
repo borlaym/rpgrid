@@ -10,6 +10,7 @@ import InputController from './classes/InputController';
 import Collision from './classes/components/Collision';
 import Outline from './classes/components/Outline';
 import Selectable from './classes/components/Selectable';
+import './classes/FirebaseController';
 
 const gameScene = new GameScene()
 GameCamera.position.y = 4

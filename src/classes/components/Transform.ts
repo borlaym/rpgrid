@@ -1,5 +1,6 @@
 import Component from '../Component';
 import { Vector3, Euler } from 'three';
+import GameEvent from '../GameEvent';
 
 export default class Transform extends Component {
 	public position: Vector3 = new Vector3()
@@ -8,7 +9,7 @@ export default class Transform extends Component {
 	public update(dt: number): void {
 		return
 	}
-	protected handleEvent(event: GamepadEvent): void {
+	protected handleEvent(event: GameEvent): void {
 		return
 	}
 }

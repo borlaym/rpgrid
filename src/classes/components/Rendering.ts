@@ -1,8 +1,7 @@
 import Component from '../Component';
 import { Object3D } from 'three';
 import Transform from './Transform';
-import Events from '../Events';
-import ComponentAddedEvent from '../events/ComponentAddedEvent';
+import GameEvent from '../GameEvent';
 
 export default class Rendering extends Component {
 	constructor(
@@ -17,7 +16,7 @@ export default class Rendering extends Component {
 		this.mesh.rotation.set(rotation.x, rotation.y, rotation.z)
 	}
 
-	protected handleEvent(event: GamepadEvent): void {
+	protected handleEvent(event: GameEvent): void {
 		return
 	}
 }

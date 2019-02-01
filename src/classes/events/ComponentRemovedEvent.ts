@@ -8,4 +8,8 @@ export default class ComponentRemovedEvent extends GameEvent {
 	) {
 		super()
 	}
+
+	toJSON() {
+		return ''
+	}
 }
