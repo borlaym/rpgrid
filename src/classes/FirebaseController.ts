@@ -16,7 +16,14 @@ const database = Firebase.database();
 const eventsRef = database.ref('/events')
 
 function addEvent(event: GameEvent) {
-	eventsRef.push(JSON.stringify(event))
+	switch (event.type) {
+		case 'ObjectMoveEvent':
+			console.log(JSON.stringify(event))
+			eventsRef.push(JSON.stringify(event))
+			break;
+		default:
+			return
+	}
 }
 Events.addListener(addEvent);
 

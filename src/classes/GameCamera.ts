@@ -32,7 +32,6 @@ class GameCamera {
 
 	public update(dt: number) {
 		if (InputController.mouseDown) {
-			console.log(this.lookingAt)
 			if (InputController.mouseMovement.x > 0) {
 				this.rotateRight()
 			} else if (InputController.mouseMovement.x < 0) {

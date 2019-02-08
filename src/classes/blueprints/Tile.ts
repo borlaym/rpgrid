@@ -5,8 +5,9 @@ import Collision from '../components/Collision';
 import * as THREE from 'three';
 import InputController from '../InputController';
 import Transform from '../components/Transform';
-import Outline from '../components/Outline';
 import Selectable from '../components/Selectable';
+import Events from '../Events';
+import ObjectMoveEvent from '../events/ObjectMoveEvent';
 
 const tileGeometry = new PlaneGeometry(1, 1);
 const tileMaterial = new LineBasicMaterial({ color: 0x00ff00 });
@@ -50,6 +51,7 @@ export default class Tile extends GameObject {
 			const position = this.getComponent(Transform).position;
 			Selectable.current.transform.position.x = position.x
 			Selectable.current.transform.position.z = position.z
+			Events.emit(new ObjectMoveEvent(this));
 		}
 	}
 }
