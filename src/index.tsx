@@ -12,6 +12,7 @@ import Outline from './classes/components/Outline';
 import Selectable from './classes/components/Selectable';
 import './classes/FirebaseController';
 import moveSelectedOnClick from './classes/systems/moveSelectedOnClick';
+import outlineActive from './classes/systems/outlineActive';
 
 const gameScene = new GameScene()
 GameCamera.position.y = 4
@@ -57,6 +58,7 @@ function update() {
 
 	// Systems
 	moveSelectedOnClick(dt)
+	outlineActive(dt)
 
 	// Reset InputController
 	InputController.reset()

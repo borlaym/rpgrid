@@ -28,13 +28,4 @@ export default class Pawn extends GameObject {
 		this.transform.position.y = 1
 		this.transform.rotation.x = -Math.PI / 2
 	}
-
-	public update() {
-		const outline = this.getComponent(Outline);
-		if (InputController.mousePointingAt === this || Selectable.current === this) {
-			outline.outlineMesh.visible = true
-		} else {
-			outline.outlineMesh.visible = false
-		}
-	}
 }
