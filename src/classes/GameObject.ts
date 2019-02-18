@@ -47,6 +47,10 @@ export default class GameObject {
 		return retVal
 	}
 
+	public static forEach(fn: (gameObject: GameObject) => void) {
+		Object.keys(GameObject.instances).forEach((uuid: string) => fn(GameObject.instances[uuid]))
+	}
+
 	private static instances: { [uuid: string]: GameObject } = {}
 
 	public readonly uuid: string
@@ -60,9 +64,17 @@ export default class GameObject {
 	}
 
 	public getComponent<T extends Component>(componentClass: new (...args: any[]) => T): T {
+		const component = this.getComponentOptional<T>(componentClass)
+		if (!component) {
+			throw new Error('Cant find component')
+		}
+		return component
+	}
+
+	public getComponentOptional<T extends Component>(componentClass: new (...args: any[]) => T): T | null {
 		const component = this.components.find((component: Component) => component instanceof componentClass)
 		if (!component || !(component instanceof componentClass)) {
-			throw new Error('Cant find component')
+			return null
 		}
 		return component
 	}

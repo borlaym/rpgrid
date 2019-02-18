@@ -45,13 +45,5 @@ export default class Tile extends GameObject {
 			this.removeComponent(Rendering);
 			this.addComponent(new Rendering(this.outline))
 		}
-
-		// Move selected object here when clicked
-		if (InputController.mousePointingAt === this && InputController.click && Selectable.current !== null) {
-			const position = this.getComponent(Transform).position;
-			Selectable.current.transform.position.x = position.x
-			Selectable.current.transform.position.z = position.z
-			Events.emit(new ObjectMoveEvent(this));
-		}
 	}
 }

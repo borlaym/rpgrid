@@ -11,6 +11,7 @@ import Collision from './classes/components/Collision';
 import Outline from './classes/components/Outline';
 import Selectable from './classes/components/Selectable';
 import './classes/FirebaseController';
+import moveSelectedOnClick from './classes/systems/moveSelectedOnClick';
 
 const gameScene = new GameScene()
 GameCamera.position.y = 4
@@ -53,6 +54,9 @@ function update() {
 	// Update selects
 	GameObject.getComponentsOfType(Selectable).forEach(c => c.update())
 	Selectable.checkClear()
+
+	// Systems
+	moveSelectedOnClick(dt)
 
 	// Reset InputController
 	InputController.reset()
