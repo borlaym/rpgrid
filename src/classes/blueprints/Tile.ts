@@ -28,22 +28,13 @@ export default class Tile extends GameObject {
 		public readonly col: number
 	) {
 		super()
-		this.addComponent(new Rendering(this.outline))
+		this.addComponent(new Rendering({
+			default: this.outline,
+			hover: this.mesh
+		}))
 		this.addComponent(new Collision(new Mesh(tileGeometry, hitBoxMaterial)))
 		this.transform.position.x = row
 		this.transform.position.z = col
 		this.transform.rotation.x = -Math.PI / 2
-	}
-
-	public update() {
-		const component = this.getComponent(Rendering).mesh;
-		if (InputController.mousePointingAt === this && component instanceof Line) {
-			this.removeComponent(Rendering);
-			this.addComponent(new Rendering(this.mesh))
-
-		} else if (InputController.mousePointingAt !== this && component instanceof Mesh) {
-			this.removeComponent(Rendering);
-			this.addComponent(new Rendering(this.outline))
-		}
 	}
 }

@@ -18,7 +18,7 @@ export default class GameScene {
 					const component: Component = (event as ComponentAddedEvent).component
 					switch (component.constructor) {
 						case Rendering:
-							this.scene.add((component as Rendering).mesh)
+							Object.values((component as Rendering).meshes).forEach(mesh => this.scene.add(mesh))
 							break;
 						case Collision:
 							this.scene.add((component as Collision).collider)
@@ -33,7 +33,7 @@ export default class GameScene {
 					const component: Component = (event as ComponentRemovedEvent).component
 					switch (component.constructor) {
 						case Rendering:
-							this.scene.remove((component as Rendering).mesh)
+							Object.values((component as Rendering).meshes).forEach(mesh => this.scene.remove(mesh))
 							break;
 						case Collision:
 							this.scene.remove((component as Collision).collider)

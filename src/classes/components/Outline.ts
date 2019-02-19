@@ -13,7 +13,7 @@ export default class Outline extends Component {
 	constructor(go: GameObject) {
 		super()
 		this.gameObject = go;
-		const parentMesh = this.gameObject.getComponent(Rendering).mesh;
+		const parentMesh = this.gameObject.getComponent(Rendering).meshes['default'];
 		if (!(parentMesh instanceof Mesh)) {
 			throw new Error('Tried to add outline to object without mesh');
 		}

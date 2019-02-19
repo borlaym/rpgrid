@@ -13,6 +13,7 @@ import Selectable from './classes/components/Selectable';
 import './classes/FirebaseController';
 import moveSelectedOnClick from './classes/systems/moveSelectedOnClick';
 import outlineActive from './classes/systems/outlineActive';
+import hoverMorph from './classes/systems/hoverMorph';
 
 const gameScene = new GameScene()
 GameCamera.position.y = 4
@@ -59,6 +60,7 @@ function update() {
 	// Systems
 	moveSelectedOnClick(dt)
 	outlineActive(dt)
+	hoverMorph(dt)
 
 	// Reset InputController
 	InputController.reset()
